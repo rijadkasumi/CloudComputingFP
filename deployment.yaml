@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: slightly-impulsive-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: slightly-impulsive
+  template:
+    metadata:
+      labels:
+        app: slightly-impulsive
+    spec:
+      containers:
+        - name: slightly-impulsive
+          image: rijadk/slightly-impulsive:latest
+          ports:
+            - containerPort: 3000
